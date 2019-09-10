@@ -7,8 +7,8 @@ import time
 
 db = connector.Manager()
 engine = db.createEngine()
-
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -209,6 +209,11 @@ def current_user():
 def logout():
     session.clear()
     return render_template('login.html')
+
+
+@app.route('/cuantasletras/<nombre>')
+def cuantas_letras(nombre):
+    return str(len(nombre))
 
 if __name__ == '__main__':
     app.secret_key = ".."

@@ -7,8 +7,8 @@ import time
 
 db = connector.Manager()
 engine = db.createEngine()
-
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -210,35 +210,28 @@ def logout():
     session.clear()
     return render_template('login.html')
 
-#stateless
+
 @app.route('/cuantasletras/<nombre>')
 def cuantas_letras(nombre):
     return str(len(nombre))
-
-#stateful
-@app.route('/suma/<numero>')
-def suma(numero):
-    if 'suma' not in session:
-        session['suma'] = 0
-
-    suma = session['suma']
-    suma = suma + int(numero)
-    #variable desicion -> session
-    session['suma'] = suma
-    return str(suma)
 
 
 @app.route('/Login', methods=['POST'])
 def login():
     username = request.form['username']
     password = request.form['password']
-    if username == 'angelicabarreto' and password == 'holi':
-        session['username'] = username;
+    db_session = db.getSession(engine)
+    user = db_session.query(entities.User).filter(
+        entities.User.username == username
+    ).filter(
+        entities.User.password == password
+    ).first()
+
+    if user != None:
+        db_session['usuario'] = username;
         return "Welcome " +username;
     else:
         return "Sorry " +username+ " you are not a valid user"
-
-
 
 if __name__ == '__main__':
     app.secret_key = ".."

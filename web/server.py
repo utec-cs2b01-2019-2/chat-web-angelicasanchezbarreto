@@ -18,6 +18,37 @@ def index():
 def static_content(content):
     return render_template(content)
 
+
+@app.route("/usuarios", methods = ["GET"])
+def todos_los_usuarios():
+    db_session = db.getSession(engine)
+    users = db_session.query(entities.User);
+    response = "";
+    for user in users:
+        response += user.username + " - "
+    return response;
+
+
+@app.route('/Login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    db_session = db.getSession(engine)
+    user = db_session.query(entities.User).filter(
+        entities.User.username == username
+    ).filter(
+        entities.User.password == password
+    ).first()
+
+    if user != None:
+        db_session['usuario'] = username;
+        db_session['password'] = password;
+        return "Welcome " +username;
+    else:
+        return "Sorry " +username+ " you are not a valid user"
+
+
+
 @app.route('/users', methods = ['POST'])
 def create_user():
     c =  json.loads(request.form['values'])
@@ -215,23 +246,6 @@ def logout():
 def cuantas_letras(nombre):
     return str(len(nombre))
 
-
-@app.route('/Login', methods=['POST'])
-def login():
-    username = request.form['username']
-    password = request.form['password']
-    db_session = db.getSession(engine)
-    user = db_session.query(entities.User).filter(
-        entities.User.username == username
-    ).filter(
-        entities.User.password == password
-    ).first()
-
-    if user != None:
-        db_session['usuario'] = username;
-        return "Welcome " +username;
-    else:
-        return "Sorry " +username+ " you are not a valid user"
 
 if __name__ == '__main__':
     app.secret_key = ".."

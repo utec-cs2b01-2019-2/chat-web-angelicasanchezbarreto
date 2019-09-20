@@ -40,6 +40,8 @@ def login():
         entities.User.password == password
     ).first()
 
+
+
     if user != None:
         db_session['usuario'] = username;
         db_session['password'] = password;
@@ -47,21 +49,40 @@ def login():
     else:
         return "Sorry " +username+ " you are not a valid user"
 
+def LstUsuarios():
+    session = db.getSession(engine)
 
+#@app.route('/users', methods = ['POST'])
+#def create_user():
+ #   c =  json.loads(request.form['values'])
+  #  user = entities.User(
+   #     username=c['username'],
+    #    name=c['name'],
+     #   fullname=c['fullname'],
+      #  password=c['password']
+    #)
+    #session = db.getSession(engine)
+    #session.add(user)
+    #session.commit()
+    #return 'Created User'
 
 @app.route('/users', methods = ['POST'])
 def create_user():
-    c =  json.loads(request.form['values'])
-    user = entities.User(
-        username=c['username'],
-        name=c['name'],
-        fullname=c['fullname'],
-        password=c['password']
+   # c = json.loads(request.form['values'])
+   username = request.form['username']
+   name = request.form['name']
+   fullname = request.form['fullname']
+   password = request.form['password']
+   user = entities.User(
+        username=username,
+        name=name,
+        fullname=fullname,
+        password=password,
     )
-    session = db.getSession(engine)
-    session.add(user)
-    session.commit()
-    return 'Created User'
+   session = db.getSession(engine)
+   session.add(user)
+   session.commit()
+   return 'Created User'
 
 @app.route('/users/<id>', methods = ['GET'])
 def get_user(id):

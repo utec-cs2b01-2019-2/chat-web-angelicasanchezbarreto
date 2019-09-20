@@ -40,8 +40,6 @@ def login():
         entities.User.password == password
     ).first()
 
-
-
     if user != None:
         db_session['usuario'] = username;
         db_session['password'] = password;
@@ -52,23 +50,24 @@ def login():
 def LstUsuarios():
     session = db.getSession(engine)
 
-#@app.route('/users', methods = ['POST'])
-#def create_user():
- #   c =  json.loads(request.form['values'])
-  #  user = entities.User(
-   #     username=c['username'],
-    #    name=c['name'],
-     #   fullname=c['fullname'],
-      #  password=c['password']
-    #)
-    #session = db.getSession(engine)
-    #session.add(user)
-    #session.commit()
-    #return 'Created User'
 
 @app.route('/users', methods = ['POST'])
 def create_user():
-   # c = json.loads(request.form['values'])
+    c =  json.loads(request.data)
+    user = entities.User(
+        username=c['username'],
+        name=c['name'],
+        fullname=c['fullname'],
+        password=c['password']
+    )
+    session = db.getSession(engine)
+    session.add(user)
+    session.commit()
+    return 'Created User'
+
+'''
+@app.route('/users', methods = ['POST'])
+def create_user2():
    username = request.form['username']
    name = request.form['name']
    fullname = request.form['fullname']
@@ -83,6 +82,8 @@ def create_user():
    session.add(user)
    session.commit()
    return 'Created User'
+'''
+
 
 @app.route('/users/<id>', methods = ['GET'])
 def get_user(id):
@@ -102,21 +103,22 @@ def get_users():
     data = dbResponse[:]
     return Response(json.dumps(data, cls=connector.AlchemyEncoder), mimetype='application/json')
 
-@app.route('/users', methods = ['PUT'])
-def update_user():
+@app.route('/users<id>', methods = ['PUT'])
+def update_user(id):
     session = db.getSession(engine)
-    id = request.form['key']
+    #id = request.form['key']
     user = session.query(entities.User).filter(entities.User.id == id).first()
-    c = json.loads(request.form['values'])
+    c = json.loads(request.form.data)
+
     for key in c.keys():
         setattr(user, key, c[key])
     session.add(user)
     session.commit()
     return 'Updated User'
 
-@app.route('/users', methods = ['DELETE'])
-def delete_user():
-    id = request.form['key']
+@app.route('/users/<id>', methods = ['DELETE'])
+def delete_user(id):
+    #id = request.form['key']
     session = db.getSession(engine)
     user = session.query(entities.User).filter(entities.User.id == id).one()
     session.delete(user)

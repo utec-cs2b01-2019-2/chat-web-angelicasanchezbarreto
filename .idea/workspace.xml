@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16051b00-6d4f-42dd-a100-f5cc678983a2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/web/static/css/Users.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/templates/Chat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/message.db" beforeDir="false" afterPath="$PROJECT_DIR$/web/message.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/model/entities.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/model/entities.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/templates/CreateUser.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/CreateUser.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/templates/Users.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/Users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/Login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/styles.css" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -108,7 +109,12 @@
       <updated>1558536507359</updated>
       <workItem from="1568944476843" duration="5084000" />
       <workItem from="1568988562300" duration="2329000" />
-      <workItem from="1568991106224" duration="3194000" />
+      <workItem from="1568991106224" duration="3726000" />
+      <workItem from="1569124626272" duration="2352000" />
+      <workItem from="1569189162798" duration="2082000" />
+      <workItem from="1569203059919" duration="1741000" />
+      <workItem from="1569334200492" duration="2009000" />
+      <workItem from="1569336648682" duration="274000" />
     </task>
     <servers />
   </component>
@@ -129,6 +135,6 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/chat_web_angelicasanchezbarreto$server.coverage" NAME="server Coverage Results" MODIFIED="1568994232400" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
+    <SUITE FILE_PATH="coverage/chat_web_angelicasanchezbarreto$server.coverage" NAME="server Coverage Results" MODIFIED="1569336209740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
   </component>
 </project>

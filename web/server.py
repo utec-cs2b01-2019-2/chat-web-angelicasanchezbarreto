@@ -1,4 +1,4 @@
-from flask import Flask,render_template, request, session, Response, redirect
+from flask import Flask, render_template, request, session, Response, redirect
 from database import connector
 from model import entities
 import datetime
@@ -43,7 +43,7 @@ def login():
     if user != None:
         db_session['usuario'] = username;
         db_session['password'] = password;
-        return "Welcome " +username;
+        return render_template('Chat.html')
     else:
         return "Sorry " +username+ " you are not a valid user"
 
@@ -53,7 +53,7 @@ def LstUsuarios():
 
 @app.route('/users', methods = ['POST'])
 def create_user():
-    c =  json.loads(request.data)
+    c = json.loads(request.data)
     user = entities.User(
         username=c['username'],
         name=c['name'],
@@ -63,7 +63,7 @@ def create_user():
     session = db.getSession(engine)
     session.add(user)
     session.commit()
-    return 'Created User'
+    return render_template('Login.html')
 
 '''
 @app.route('/users', methods = ['POST'])
@@ -268,6 +268,59 @@ def logout():
 @app.route('/cuantasletras/<nombre>')
 def cuantas_letras(nombre):
     return str(len(nombre))
+
+#API de grupos
+
+#1. CREATE
+
+@app.route('/groups',methods=['POST'])
+def create_group():
+    c = json.loads(request.data)
+    group = entities.Group(
+        name = c['name']
+    )
+    session_db = db.getSession(engine)
+    session_db.add(group)
+    session_db.commit()
+    return 'Created Group'
+
+@app.route('/groups<id>',methods=['GET'])
+def read_group(id):
+    session_db = db.getSession(engine)
+    group = session_db.query(entities.Group).filter(
+        entities.Group.id == id).first()
+    data = json.dumps(group, cls=connector.AlchemyEncoder)
+    return Response(data, status=200, mimetype='application/json')
+
+
+@app.route('/groups<id>',methods=['GET'])
+def get_all_groups():
+    session_db = db.getSession(engine)
+    dbResponse = session_db.query(entities.Group)
+    data = dbResponse [:]
+    return Response(json.dumps(data, cls=connector.AlchemyEncoder), mimetype='application/json')
+
+@app.route('/groups/<id>', methods=['DELETE'])
+def delete_group(id):
+    #id = request.form['key']
+    session = db.getSession(engine)
+    group = session.query(entities.Group).filter(entities.Group.id == id).one()
+    session.delete(Group)
+    session.commit()
+    return "Deleted User"
+
+@app.route('/users<id>', methods = ['PUT'])
+def update_user(id):
+    session = db.getSession(engine)
+    #id = request.form['key']
+    user = session.query(entities.User).filter(entities.User.id == id).first()
+    c = json.loads(request.form.data)
+
+    for key in c.keys():
+        setattr(user, key, c[key])
+    session.add(user)
+    session.commit()
+    return 'Updated User'
 
 
 if __name__ == '__main__':

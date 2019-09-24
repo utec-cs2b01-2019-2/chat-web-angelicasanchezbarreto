@@ -284,6 +284,7 @@ def create_group():
     session_db.commit()
     return 'Created Group'
 
+#2. READ
 @app.route('/groups<id>',methods=['GET'])
 def read_group(id):
     session_db = db.getSession(engine)
@@ -292,7 +293,7 @@ def read_group(id):
     data = json.dumps(group, cls=connector.AlchemyEncoder)
     return Response(data, status=200, mimetype='application/json')
 
-
+#3. GET
 @app.route('/groups<id>',methods=['GET'])
 def get_all_groups():
     session_db = db.getSession(engine)
@@ -300,27 +301,27 @@ def get_all_groups():
     data = dbResponse [:]
     return Response(json.dumps(data, cls=connector.AlchemyEncoder), mimetype='application/json')
 
-@app.route('/groups/<id>', methods=['DELETE'])
-def delete_group(id):
-    #id = request.form['key']
-    session = db.getSession(engine)
-    group = session.query(entities.Group).filter(entities.Group.id == id).one()
-    session.delete(Group)
-    session.commit()
-    return "Deleted User"
-
-@app.route('/users<id>', methods = ['PUT'])
-def update_user(id):
-    session = db.getSession(engine)
-    #id = request.form['key']
-    user = session.query(entities.User).filter(entities.User.id == id).first()
-    c = json.loads(request.form.data)
+#4. UPDATE
+@app.route('/groups/<id>', methods = ['PUT'])
+def update_group(id):
+    session_db = db.getSession(engine)
+    group = session_db.query(entities.Group).filter(entities.Group.id == id).first()
+    c = json.loads(request.data)
 
     for key in c.keys():
-        setattr(user, key, c[key])
-    session.add(user)
+        setattr(group, key, c[key])
+    session.add(group)
     session.commit()
-    return 'Updated User'
+    return 'Updated Group'
+
+#5. DELETE
+@app.route('/groups/<id>', methods = ['DELETE'])
+def delete_group(id):
+    session_db = db.getSession(engine)
+    user = session_db.query(entities.Group).filter(entities.Group.id == id).one()
+    session_db.delete(user)
+    session_db.commit()
+    return "Deleted User"
 
 
 if __name__ == '__main__':

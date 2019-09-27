@@ -35,7 +35,7 @@ body{
 	border:1px solid #E6E6E6;
 	padding: 7px;
 }
-.headLeft-sub button{
+.headLeft-sub .btn-primary{
 	background: #009EF7;
 	color: #fff;
 	border:1px solid #E6E6E6;
@@ -254,14 +254,14 @@ body{
 	padding:8px 5px;
 	width:calc(100% - 150px);
 }
-.right-section-bottom .btn-send{
+.right-section-bottom .btn-primary{
 	border:0px;
 	padding: 8px 10px;
 	float: right;
 	margin-right: 30px;
-	color: #009EF7;
+	color: #f7f3f7;
 	font-size: 18px;
-	background: #fff;
+	background: #2b7dff;
 	cursor: pointer;
 }
 .upload-btn{
@@ -272,10 +272,10 @@ body{
 }
 .upload-btn .btn{
   	border:0px;
-	padding: 8px 10px;
+	padding: 9px 10px;
 	color: #009EF7;
 	font-size: 18px;
-	background: #fff;
+	background: #1c3fff;
 	cursor: pointer;
 }
 .upload-btn input[type=file] {

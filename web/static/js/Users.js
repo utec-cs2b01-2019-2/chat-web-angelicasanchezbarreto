@@ -1,6 +1,5 @@
 $(function(){
-    var url = "ttp://127.0.0.1:8000/users";
-
+    var url = "http://127.0.0.1:8000/users";
 
     $("#grid").dxDataGrid({
         dataSource: DevExpress.data.AspNet.createStore({
@@ -30,17 +29,25 @@ $(function(){
             allowedPageSizes: [8, 12, 20]
         },
         columns: [{
-            dataField: "id",
-            dataType: "number",
-            allowEditing: false
-        }, {
-            dataField: "username"
-        }, {
-            dataField: "name"
-        }, {
-            dataField: "fullname"
-        }, {
-            dataField: "password"
-        }, ],
-    }).dxDataGrid("instance");
-});
+                dataField: "id",
+                dataType: "number",
+                allowEditing: false},
+
+                {dataField: "username",
+                dataType: "text",
+                allowEditing: true},
+
+                {dataField: "name",
+                dataType: "text",
+                allowEditing: true},
+
+                {dataField: "fullname",
+                dataType: "text",
+                allowEditing: true},
+
+                {dataField: "password",
+                dataType: "text",
+                allowEditing: true}
+                ]
+                        }).dxDataGrid("instance");
+            });

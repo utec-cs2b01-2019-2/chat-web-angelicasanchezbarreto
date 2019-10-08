@@ -22,8 +22,8 @@ def static_content(content):
 @app.route("/usuarios", methods = ["GET"])
 def todos_los_usuarios():
     db_session = db.getSession(engine)
-    users = db_session.query(entities.User);
-    response = "";
+    users = db_session.query(entities.User)
+    response = ""
     for user in users:
         response += user.username + " - "
     return response;
@@ -53,7 +53,7 @@ def LstUsuarios():
 
 @app.route('/users', methods = ['POST'])
 def create_user():
-    c = json.loads(request.data)
+    c = json.loads(request.form['values'])
     user = entities.User(
         username=c['username'],
         name=c['name'],
@@ -103,12 +103,12 @@ def get_users():
     data = dbResponse[:]
     return Response(json.dumps(data, cls=connector.AlchemyEncoder), mimetype='application/json')
 
-@app.route('/users<id>', methods = ['PUT'])
-def update_user(id):
+@app.route('/users', methods = ['PUT'])
+def update_user():
     session = db.getSession(engine)
-    #id = request.form['key']
+    id = request.form['key']
     user = session.query(entities.User).filter(entities.User.id == id).first()
-    c = json.loads(request.form.data)
+    c = json.loads(request.form['values'])
 
     for key in c.keys():
         setattr(user, key, c[key])
@@ -116,9 +116,9 @@ def update_user(id):
     session.commit()
     return 'Updated User'
 
-@app.route('/users/<id>', methods = ['DELETE'])
-def delete_user(id):
-    #id = request.form['key']
+@app.route('/users', methods = ['DELETE'])
+def delete_user():
+    id = request.form['key']
     session = db.getSession(engine)
     user = session.query(entities.User).filter(entities.User.id == id).one()
     session.delete(user)
@@ -268,6 +268,8 @@ def logout():
 @app.route('/cuantasletras/<nombre>')
 def cuantas_letras(nombre):
     return str(len(nombre))
+
+
 
 #API de grupos
 

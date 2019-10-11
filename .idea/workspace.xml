@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16051b00-6d4f-42dd-a100-f5cc678983a2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/static/js/Messages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/templates/Messages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/layered.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/layered.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/message.db" beforeDir="false" afterPath="$PROJECT_DIR$/web/message.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/js/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/js/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/templates/Users.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/Users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/Login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +125,9 @@
       <workItem from="1569885009239" duration="825000" />
       <workItem from="1570199614103" duration="4557000" />
       <workItem from="1570499657242" duration="297000" />
-      <workItem from="1570563422889" duration="10313000" />
+      <workItem from="1570563422889" duration="10875000" />
+      <workItem from="1570587806203" duration="1299000" />
+      <workItem from="1570805868198" duration="539000" />
     </task>
     <servers />
   </component>
@@ -157,13 +152,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/static/js/Users.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/chat_web_angelicasanchezbarreto$server.coverage" NAME="server Coverage Results" MODIFIED="1570576879449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
+    <SUITE FILE_PATH="coverage/chat_web_angelicasanchezbarreto$server.coverage" NAME="server Coverage Results" MODIFIED="1570806532983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
   </component>
 </project>

@@ -41,8 +41,8 @@ def login():
     ).first()
 
     if user != None:
-        db_session['usuario'] = username;
-        db_session['password'] = password;
+        session['usuario'] = username;
+        session['password'] = password;
         return render_template('Chat.html')
     else:
         return "Sorry " +username+ " you are not a valid user"

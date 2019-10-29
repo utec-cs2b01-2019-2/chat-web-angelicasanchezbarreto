@@ -1,6 +1,6 @@
 $(function(){
     var url = "http://127.0.0.1:8000/messages";
-    var db ="http://127.0.0.1:8000/users"
+    var url_users ="http://127.0.0.1:8000/users"
     $("#grid").dxDataGrid({
         dataSource: DevExpress.data.AspNet.createStore({
             key: "id",
@@ -27,12 +27,17 @@ $(function(){
                 //dataType: "text",
                 allowEditing: true},
 
+                {dataField: "sent_on",
+                dataType: "datetime",
+                format: "MM/dd/yyyy hh:mm",
+                allowEditing: false},
+
                 {dataField: "user_from_id",
                 lookup: {
                         dataSource: DevExpress.data.AspNet.createStore
                         ({
                             key: "id",
-                            loadUrl: db,
+                            loadUrl: url_users,
                             onBeforeSend: function(method, ajaxOptions) {
                                 ajaxOptions.xhrFields = { withCredentials: true };
                             }
@@ -46,7 +51,7 @@ $(function(){
                         dataSource: DevExpress.data.AspNet.createStore
                         ({
                             key: "id",
-                            loadUrl: db,
+                            loadUrl: url_users,
                             onBeforeSend: function(method, ajaxOptions) {
                                 ajaxOptions.xhrFields = { withCredentials: true };
                             }

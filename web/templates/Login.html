@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="/static/css/Login.css">
         <title>Login</title>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery-3.1.0.min.js"%3E%3C/script%3E'))</script> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery-3.1.0.min.js"%3E%3C/script%3E'))</script>
 </head>
     <body>
     <div class="inner-screen">
         <div class="form">
             <h2 class="hola"> Login </h2>
-            <form method="post" action="/Login">
-                <input type="text" placeholder="Enter your username" name="username" />
-                <input type="password" placeholder="password" name="password" />
-                <input type="submit" value="Log In" />
+            <form>
+                <input type="text" placeholder="Enter your username" id="username" />
+                <input type="password" placeholder="password" id="password" />
+                <input type="submit" value="Log In" onclick="getData()"/>
                 <!--<a href="https://google.com"target="_blank">Forgot password?</a> para insertar un link-->
-                <a href="http://127.0.0.1:8000/static/CreateUser.html"target="_blank">Don't have an account? Create User</a> <!--para insertar un link-->
-
+                <a href="http://127.0.0.1:8000/static/CreateUser.html"target="_blank">Don't have an account?</a> <!--para insertar un link-->
             </form>
         </div>
     </div>
+      <script  src="login.js"></script>
     </body>
 </html>

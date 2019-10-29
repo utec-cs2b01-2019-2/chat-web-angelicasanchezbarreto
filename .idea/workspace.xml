@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16051b00-6d4f-42dd-a100-f5cc678983a2" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/static/js/libs/jquery-3.3.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/templates/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/message.db" beforeDir="false" afterPath="$PROJECT_DIR$/web/message.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/static/js/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/js/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/static/js/Messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/static/js/Messages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/templates/Chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/Chat.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/templates/Login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,24 +46,29 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1R56Ak4zS5MuAXDSqVPqehyYevP" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web/static/css/libs" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web/static/css/libs" />
-      <recent name="$PROJECT_DIR$/web/static/js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web/static/css/libs" />
       <recent name="$PROJECT_DIR$/web/static/js/libs" />
       <recent name="$PROJECT_DIR$/web/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/templates" />
+      <recent name="$PROJECT_DIR$/web/static/css/libs" />
+      <recent name="$PROJECT_DIR$/web/static/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -100,6 +112,9 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="showServicesTree" value="false" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -127,7 +142,15 @@
       <workItem from="1570499657242" duration="297000" />
       <workItem from="1570563422889" duration="10875000" />
       <workItem from="1570587806203" duration="1299000" />
-      <workItem from="1570805868198" duration="539000" />
+      <workItem from="1570805868198" duration="3242000" />
+      <workItem from="1571149047762" duration="1529000" />
+      <workItem from="1571167130361" duration="9000" />
+      <workItem from="1571255295974" duration="8845000" />
+      <workItem from="1571265215368" duration="12000" />
+      <workItem from="1571359250651" duration="1617000" />
+      <workItem from="1571409895276" duration="4485000" />
+      <workItem from="1571438668348" duration="8727000" />
+      <workItem from="1571636848147" duration="30000" />
     </task>
     <servers />
   </component>
@@ -147,6 +170,9 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -158,6 +184,6 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/chat_web_angelicasanchezbarreto$server.coverage" NAME="server Coverage Results" MODIFIED="1570806532983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
+    <SUITE FILE_PATH="coverage/chat_web_angelicasanchezbarreto$server.coverage" NAME="server Coverage Results" MODIFIED="1571444347984" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/web" />
   </component>
 </project>

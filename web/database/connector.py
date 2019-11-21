@@ -1,18 +1,4 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@angelicasanchezbarreto 
-Code Issues 0 Pull requests 0 Projects 0 Wiki Security Pulse Community
-chat-web/web/database/connector.py
-@jesubellido jesubellido connecting to postgres
-af451aa 7 days ago
-@jesubellido@jbellidoutec
-39 lines (31 sloc)  1.27 KB
  
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -25,7 +11,7 @@ class Manager:
     session = None
 
     def createEngine(self):
-        uri = 'postgres://cmrxbadkuqhcpf:f285929a2e21a5547d29bcd8accef35bea2dfccd269ca90ee78bf9c4dd0252d8@ec2-23-21-115-109.compute-1.amazonaws.com:5432/d7cf77eum358n2'
+        uri = 'sqlite:///message.db?check_same_thread=False'
         engine = create_engine(uri, echo=False)
         self.Base.metadata.create_all(engine)
         return engine
@@ -52,16 +38,4 @@ class AlchemyEncoder(json.JSONEncoder):
             return fields
 
         return json.JSONEncoder.default(self, obj)
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
 

@@ -271,11 +271,12 @@ def authenticate():
     try:
         user = db_session.query(entities.User).filter(entities.User.username == username).filter(entities.User.password == password).first()
         session['logged_user'] = user.id
-        message = {'message': 'Authorized'}
-        return Response(json.dumps(message, cls=connector.AlchemyEncoder), status=200, mimetype='application/json')
+        message = {'message': 'Authorized', 'username': user.username, 'user_id':user.id}
+        print(username+password)
+        return Response(json.dumps(message), status=200, mimetype='application/json')
     except Exception:
         message = {'message': 'Unauthorized'}
-        return Response(message, status=401, mimetype='application/json')
+        return Response(json.dumps(message), status=401, mimetype='application/json')
 
 
 @app.route('/current', methods=['GET'])
@@ -358,4 +359,4 @@ def delete_group(id):
 
 if __name__ == '__main__':
     app.secret_key = ".."
-    app.run(debug=True, port=80, threaded=True, use_reloader=False)
+    app.run(debug=True, port=8000, threaded=True, use_reloader=False)

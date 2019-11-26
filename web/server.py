@@ -159,9 +159,11 @@ def create_message():
         user_from_id=c['user_from_id'],
         user_to_id=c['user_to_id'],
     )
-    session = db.getSession(engine)
-    session.add(message)
-    session.commit()
+
+    if message.content:
+        session = db.getSession(engine)
+        session.add(message)
+        session.commit()
     return 'Created Message'
 
 

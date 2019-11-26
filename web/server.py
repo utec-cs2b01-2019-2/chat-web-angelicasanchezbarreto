@@ -1,11 +1,10 @@
-from flask import Flask, render_template, request, session, Response, redirect
-from database import connector
-from model import entities
 import datetime
 import json
-import time
-from operator import  itemgetter,attrgetter
+from operator import attrgetter
 
+from database import connector
+from flask import Flask, render_template, request, session, Response
+from model import entities
 
 db = connector.Manager()
 engine = db.createEngine()
@@ -152,14 +151,13 @@ def create_test_users():
     return "Test user created!"
 
 
-@app.route('/messages', methods=['POST'])
+@app.route('/messages', methods = ['POST'])
 def create_message():
-    c = json.loads(request.form['values'])
+    c = json.loads(request.data)
     message = entities.Message(
         content=c['content'],
-        sent_on=datetime.datetime(2000, 2, 2),
         user_from_id=c['user_from_id'],
-        user_to_id=c['user_to_id']
+        user_to_id=c['user_to_id'],
     )
     session = db.getSession(engine)
     session.add(message)
@@ -167,7 +165,7 @@ def create_message():
     return 'Created Message'
 
 
-@app.route('/messages/<id>', methods=['GET'])
+@app.route('/messages/<id>', methods = ['GET'])
 def get_message(id):
     db_session = db.getSession(engine)
     messages = db_session.query(entities.Message).filter(entities.Message.id == id)
@@ -178,17 +176,15 @@ def get_message(id):
     message = {'status': 404, 'message': 'Not Found'}
     return Response(message, status=404, mimetype='application/json')
 
-
-@app.route('/messages', methods=['GET'])
+@app.route('/messages', methods = ['GET'])
 def get_messages():
     sessionc = db.getSession(engine)
     dbResponse = sessionc.query(entities.Message)
     data = dbResponse[:]
     return Response(json.dumps(data, cls=connector.AlchemyEncoder), mimetype='application/json')
 
-
-@app.route('/messages/<user_from_id>/<user_to_id>', methods=['GET'])
-def get_messages_user(user_from_id, user_to_id):
+@app.route('/messages/<user_from_id>/<user_to_id>', methods = ['GET'])
+def get_messages_user(user_from_id, user_to_id ):
     db_session = db.getSession(engine)
     messages_send = db_session.query(entities.Message).filter(
         entities.Message.user_from_id == user_from_id).filter(
@@ -203,11 +199,12 @@ def get_messages_user(user_from_id, user_to_id):
         data.append(message)
     for message in messages_recieved:
         data.append(message)
-    data = sorted(data, key=attrgetter('sent_on'), reverse=False)
+    data = sorted(data, key=attrgetter('id'), reverse=False)
     return Response(json.dumps(data, cls=connector.AlchemyEncoder), mimetype='application/json')
 
 
-@app.route('/messages', methods=['PUT'])
+
+@app.route('/messages', methods = ['PUT'])
 def update_message():
     session = db.getSession(engine)
     id = request.form['key']
@@ -219,8 +216,7 @@ def update_message():
     session.commit()
     return 'Updated Message'
 
-
-@app.route('/messages', methods=['DELETE'])
+@app.route('/messages', methods = ['DELETE'])
 def delete_message():
     id = request.form['key']
     session = db.getSession(engine)
@@ -229,8 +225,7 @@ def delete_message():
     session.commit()
     return "Deleted Message"
 
-
-@app.route('/create_test_messages', methods=['GET'])
+@app.route('/create_test_messages', methods = ['GET'])
 def create_test_messages():
     db_session = db.getSession(engine)
     message = entities.Message(content="Hi")
@@ -238,8 +233,7 @@ def create_test_messages():
     db_session.commit()
     return "Test message created!"
 
-
-@app.route('/sendMessage', methods=['POST'])
+@app.route('/sendMessage', methods = ['POST'])
 def send_message():
     message = json.loads(request.data)
     content = message['content']
@@ -247,10 +241,10 @@ def send_message():
     user_to_id = message['user_to_id']
     session = db.getSession(engine)
     add = entities.Message(
-        content=content,
-        sent_on=datetime.datetime(2000, 2, 2),
-        user_from_id=user_from_id,
-        user_to_id=user_to_id,
+    content=content,
+    sent_on=datetime.datetime(2000, 2, 2),
+    user_from_id=user_from_id,
+    user_to_id=user_to_id,
 
     )
     session.add(add)
